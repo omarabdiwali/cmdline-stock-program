@@ -5,7 +5,6 @@ import sqlite3
 import datetime
 from bs4 import BeautifulSoup
 from tabulate import tabulate
-from time import sleep
 
 #finnhub.io api key
 token = '################'
@@ -281,7 +280,7 @@ def allCommands(cmd):
         print()
         mainPage()
    
-    #shows the list of commmands, and what the do
+    #shows the list of commmands, and what they do
     elif cmd == 'help' or cmd == 'h':
         for i in range(len(commands)):
             print(f"'{commands[i]}' - {uses[i]}")
@@ -341,7 +340,7 @@ def sellStock():
             c.execute("""select number from stocks where name = '{}'""".format(getStock))
             value = c.fetchone()
 
-        #gets the current pricem and asks you how many you want to buy
+        #gets the current price and asks you how many you want to buy
         shares = value[0]
         numOfStocks = input("How many stocks do you wanna sell: ")
 
@@ -410,7 +409,6 @@ def browse(name):
 
     r = requests.get(
         f'https://finnhub.io/api/v1/quote?symbol={name}&token={token}').json()
-    sleep(0.25)
 
     if r['c'] == 0:
         if name == 'google':
