@@ -1,7 +1,7 @@
 import sqlite3
 
-#Create new database
-name = 'enter Database Name (end it with .db)'
+#Create new database, enter the database name in name, and end it with a '.db'
+name = ''
 conn = sqlite3.connect(name)
 c = conn.cursor()
 
