@@ -452,7 +452,7 @@ def browse(name):
         r = requests.get(
             f'https://finnhub.io/api/v1/quote?symbol={symbol}&token={token}').json()
 
-        #changing epoch time to date and time
+        #changing unix time to date and time
         milli = r['t']
         time = datetime.datetime.fromtimestamp(
             milli).strftime('%Y-%m-%d %H:%M:%S.%f')
