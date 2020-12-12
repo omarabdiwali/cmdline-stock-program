@@ -432,7 +432,7 @@ def browse(name):
             company + ' : Is this the stock you were looking for (y/n): ').lower()
 
         #if it isn't, gets the next company in the table
-        while correctStock == 'no' or correctStock == 'n':
+        while correctStock == 'no' or correctStock == 'n' and com < len(data):
             symbol = data[sym].text
             company = data[com].text
 
@@ -441,6 +441,10 @@ def browse(name):
 
             correctStock = input(
                 company + ' : Is this the stock you were looking for: ').lower()
+        
+        if com >= len(data):
+            print('Could not find this stock.')
+            mainPage()
 
         #redirects to main page
         if correctStock == 'back' or correctStock == 'b':
