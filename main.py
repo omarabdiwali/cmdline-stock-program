@@ -81,7 +81,7 @@ def buyStock(name):
 
         #if the company and price is incorrect, it gathers the data for the next company
         if correctStock == 'n' or correctStock == 'no':
-            while (correctStock == 'no' or correctStock == 'n') and com < len(data):
+            while (correctStock == 'no' or correctStock == 'n') and com < len(data) * 2:
                 symbol = data[sym].text
                 company = data[com].text
 
@@ -145,12 +145,15 @@ def buyStock(name):
             elif buyOption == 'n' or buyOption == 'no':
                 mainPage()
 
+            elif buyOption == 'back' or buyOption == 'b':
+                mainPage()
+            
             else:
                 print('Invalid input.')
                 mainPage()
 
         else:
-            print('Invalid input')
+            print('Could not find stock')
             mainPage()
 
     mainPage()
@@ -432,7 +435,7 @@ def browse(name):
             company + ' : Is this the stock you were looking for (y/n): ').lower()
 
         #if it isn't, gets the next company in the table
-        while correctStock == 'no' or correctStock == 'n' and com < len(data):
+        while correctStock == 'no' or correctStock == 'n' and com < len(data) * 2:
             symbol = data[sym].text
             company = data[com].text
 
@@ -442,7 +445,7 @@ def browse(name):
             correctStock = input(
                 company + ' : Is this the stock you were looking for: ').lower()
         
-        if com >= len(data):
+        if com >= len(data) * 2:
             print('Could not find this stock.')
             mainPage()
 
